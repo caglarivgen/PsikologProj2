@@ -1,0 +1,92 @@
+<!-- admin_panel.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıtlı Kullanıcılar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .page-title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #333;
+            transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+            transform: translateX(-50%);
+        }
+        .page-title:hover::after {
+            width: calc(100% - 40px); /* Örneğin, başlık genişliğinin 20px'lik paddinglerini hesapladık */
+            left: 600px; /* Padding miktarı */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative; /* For positioning the icon */
+        }
+        li:hover {
+            background-color: #f0f0f0;
+        }
+        .details-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+        .back-to-home {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        .back-to-home:hover {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-to-home"><i class="fas fa-home"></i> Ana Sayfaya Dön</a>
+    <h1 class="page-title">Kayıtlı Kullanıcılar</h1>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.username }} - {{ user.email }} 
+                <a href=""><i class="fas fa-info-circle details-icon"></i></a>
+            </li>
+        {% endfor %}
+    </ul>
+    <h1 class="page-title">Kayıtlı Psikologlar</h1>
+    <ul>  
+        {% for personel in personels %}
+            <li>{{ personel.ad }}  {{ personel.soyad }} - {{ personel.email }}
+                <a href=""><i class="fas fa-info-circle details-icon"></i></a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

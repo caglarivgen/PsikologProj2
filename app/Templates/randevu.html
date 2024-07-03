@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Randevu Al</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Randevu Al</h1>
+        <form action="{{ url_for('randevu_al') }}" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label for="psikolog_id">{{ form.psikolog_id.label }}</label>
+                {{ form.psikolog_id(class="form-control") }}
+                {% for error in form.psikolog_id.errors %}
+                    <small class="form-text text-danger">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="tarih">{{ form.tarih.label }}</label>
+                {{ form.tarih(class="form-control") }}
+                {% for error in form.tarih.errors %}
+                    <small class="form-text text-danger">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="saat">{{ form.saat.label }}</label>
+                {{ form.saat(class="form-control") }}
+                {% for error in form.saat.errors %}
+                    <small class="form-text text-danger">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="mesaj">{{ form.mesaj.label }}</label>
+                {{ form.mesaj(class="form-control", rows=4) }}
+                {% for error in form.mesaj.errors %}
+                    <small class="form-text text-danger">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary">{{ form.submit.label }}</button>
+        </form>
+    </div>
+</body>
+</html>

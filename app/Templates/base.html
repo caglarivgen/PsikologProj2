@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent ">
+            <a class="navbar-brand" href="#"> <img class="logo" src="../static/images/logo.png" alt=""> </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">              
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">   <!--active -->
+                  <a class="nav-link" href="/index" target="_self">Ana Sayfa <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/hakkimizda" target="_self">Hakkımızda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/hizmetler" target="_self">Hizmetlerimiz</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/" target="_self">Psikologlarımız</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/randevu/al" target="_self">Randevu Al</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact" target="_self">İletişim</a>
+                </li>
+              </ul>
+                
+              <div>
+                {% if current_user.is_authenticated and current_user.username == 'admin' %}
+                    <a href="/admin_panel">Yönetim</a>
+                {% endif %}
+                {% if current_user.is_anonymous %}
+                    <a href="{{ url_for('login') }}">Giriş</a>
+                {% else %}
+                    {% if current_user.username != 'admin' %}
+                        <a href="{{ url_for('edit_profile') }}">Profil Düzenle</a>
+                    {% endif %}
+                    <a href="{{ url_for('logout') }}">Çıkış</a>
+                {% endif %}
+            </div>
+            
+              <!-- Buraya istediğiniz ek öğeleri ekleyebilirsiniz, örneğin bir arama kutusu veya giriş yapma düğmesi -->
+            </div>
+          </nav>
+    </header>
+    
+    <div class="row ">
+        <div class="col-md-2"></div>
+        <div class="main col-md-8 ">{%block content%} {%endblock%}</div>
+        <div class="col-md-2"></div>
+    </div>
+
+
+    <footer class="footer bg-light fixed-bottom ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <h5>Hakkımızda</h5>
+                    <p>Profesyonel psikolojik danışmanlık hizmetleri sunuyoruz.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5>Bağlantılar</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Hizmetlerimiz</a></li>
+                        <li><a href="#">Psikologlarımız</a></li>
+                        <li><a href="#">Randevu Al</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5>İletişim</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</p>
+                    <p><i class="fas fa-phone"></i> +90 539 620 3735</p>
+                    <p><i class="fas fa-envelope"></i> caglar19234@hotmail.com</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <hr class="mt-1 mb-2">
+                    <p class="text-center">&copy; 2024 Psikolog Danışmanlık Merkezi</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

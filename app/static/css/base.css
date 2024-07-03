@@ -1,0 +1,55 @@
+.collapse .navbar-nav .nav-link {
+    color: #a67ee6; /* Metin rengini beyaz olarak ayarlar */
+    font-weight: bold;
+    font-size: 15px;
+    margin-right: 15px;
+}
+.collapse .navbar-nav .nav-link:hover {
+    color: #4b6852; /* Metin rengini hover (üzerine gelindiğinde) durumunda sarı olarak ayarlar */
+}
+
+.navbar-collapse {
+    padding-left: 180px; /* Soldan 180 piksel iç boşluk ekler */
+}
+
+body {
+    background-image: url('../images/bg.png'); /* Arka plan resmini belirle */ 
+    background-position: center; /* Resmin ortalanmasını sağla */
+    background-position-y:-100px;
+}
+.logo {
+    width: 50px;
+    height: 50px;
+}
+.navbar{
+    display: flex;
+    justify-content: center; /* Yatayda ortala */
+    align-items: center; /* Dikeyde ortala */
+    height: 60px; /* Görünür ekran yüksekliği kadar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease; /* Geçiş efekti */
+    
+}
+.navbar a {
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.footer {
+    position: relative; /* Footer'ı normal belge akışında tut */
+    margin-top: 100%;
+    width: 100%;
+}   
+.main{
+    margin-top: 70px; /* Navbar height */
+    padding: 20px;
+    z-index: 1;
+}
+.about-section{
+    font-size: 35px;
+}

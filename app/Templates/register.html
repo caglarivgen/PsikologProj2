@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--===============================================================================================-->    
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
+<!--===============================================================================================-->    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body style="background-color: #666666;" class="iimage">
+	
+	<div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-register">
+                <form class="login100-form validate-form" action="/register" method="post" novalidate>
+                    {{ form.hidden_tag() }}
+                    <span class="login100-form-title p-b-43">
+                        Hesap Oluştur
+                    </span>
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        {{ form.username(class="input100", type="text") }}
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Kullanıcı Adı</span>
+                    </div>
+                
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        {{ form.password(class="input100", type="password") }}
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Şifre</span>
+                    </div>
+                    
+                    <div class="wrap-input100 validate-input" data-validate="Password confirmation is required">
+                        <input class="input100" type="password" name="password2" required>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Şifre Doğrulama</span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" >
+                        {{ form.email(class="input100", type="email") }}
+                        <span class="focus-input100"></span>    
+                        <span class="label-input100">Email</span>
+                    </div>
+                
+                    <div class="wrap-input100 validate-input">
+                        {{ form.tc_kimlik_no(class="input100", type="text") }}
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">TC Kimlik No</span>
+                    </div>
+                
+                    <div class="wrap-input100 validate-input">
+                        {{ form.dogum_tarihi(class="input100", type="text") }}
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Doğum Tarihi (YYYY-MM-DD)</span>
+                    </div>
+                
+                    <div class="wrap-input100 validate-input">
+                        {{ form.ad(class="input100", type="text") }}
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Ad</span>
+                    </div>
+                
+                    <div class="wrap-input100 validate-input">
+                        {{ form.soyad(class="input100", type="text") }}
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Soyad</span>
+                    </div>
+                
+                    <div class="wrap-input100 validate-input">
+                        {{ form.telefon(class="input100", type="text") }}
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Telefon</span>
+                    </div>
+                
+                    <div class="wrap-input100 validate-input">
+                        {{ form.adres(class="input100", type="text") }}
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Adres</span>
+                    </div>
+
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" type="submit">
+                            Kayıt Ol
+                        </button>
+                    </div>
+                    <div class="text-center p-t-46 p-b-20">
+                        <span class="txt2">
+                            Diğer giriş Seçenekleri
+                        </span>
+                    </div>
+                    <div class="login100-form-social flex-c-m">
+                        <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                            <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </form>
+                
+                
+                <div class="login100-more"  >
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	
+<!--===============================================================================================-->
+<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='vendor/daterangepicker/moment.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
